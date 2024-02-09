@@ -36,6 +36,22 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: Column());
+        body:   Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                 Image.asset('asset/aliens.png',height: 50,width: 50,),
+                 Image.asset('asset/cabin.png',height: 50,width: 50),
+                 Image.asset('asset/island.png',height: 50,width: 50),
+                 Image.asset('asset/modern-house.png',height: 50,width: 50),
+                 Image.asset('asset/palm-tree.png',height: 50,width: 50),
+                ],
+              )
+            ],
+          ),
+        ));
   }
 }
