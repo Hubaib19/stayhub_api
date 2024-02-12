@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -97,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                     text7: '',
                   ),
                   HelpCentre(
-                    text1: 'Aurbnb',
+                    text1: 'Airbnb',
                     text2: 'Newsroom',
                     text3: 'New features',
                     text4: 'Careers',
@@ -127,7 +129,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         Text(
           text1,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         const SizedBox(
           height: 5,
