@@ -6,52 +6,156 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-        appBar: AppBar(
-          title: const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Text(
-                'stayhub',
-                style: TextStyle(
-                  color: Colors.purple,
-                  fontStyle: FontStyle.italic,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                ),
+      appBar: AppBar(
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'stayhub',
+              style: TextStyle(
+                color: Colors.purple,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
               ),
-              Text(
-                'Host your '
-                'home',
-                style: TextStyle(fontSize: 21, fontWeight: FontWeight.w700),
-              ),
-            ],
-          ),
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.person_2_rounded),
-              onPressed: () {},
-              iconSize: 50,
-              color: Colors.grey,
             ),
           ],
         ),
-        body:   Padding(
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.person_2_rounded),
+            onPressed: () {},
+            iconSize: 50,
+            color: Colors.grey,
+          ),
+        ],
+        elevation: 1,
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  types(imagepath: 'asset/aliens.png', text: 'OMG!'),
+                  types(imagepath: 'asset/cabin.png', text: 'Cabins'),
+                  types(imagepath: 'asset/island.png', text: 'Islands'),
+                  types(imagepath: 'asset/modern-house.png', text: 'Designs'),
+                  types(imagepath: 'asset/palm-tree.png', text: 'Tropicals'),
+                ],
+              ),
+              const SizedBox(
+                height: 80,
+              ),
+              Container(
+                color: Colors.amber,
+                width: 350,
+                height: 350,
+              ),
+              const SizedBox(
+                height: 150,
+              ),
+              Container(
+                color: Colors.amber,
+                width: 350,
+                height: 350,
+              ),
+              const SizedBox(
+                height: 150,
+              ),
+              Container(
+                color: Colors.amber,
+                width: 350,
+                height: 350,
+              ),
+              const SizedBox(height: 150),
+              const Divider(
+                thickness: 2,
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                 Image.asset('asset/aliens.png',height: 50,width: 50,),
-                 Image.asset('asset/cabin.png',height: 50,width: 50),
-                 Image.asset('asset/island.png',height: 50,width: 50),
-                 Image.asset('asset/modern-house.png',height: 50,width: 50),
-                 Image.asset('asset/palm-tree.png',height: 50,width: 50),
+                  HelpCentre(
+                    text1: 'Support',
+                    text2: 'Help centre',
+                    text3: 'Air cover',
+                    text4: 'Air-discrimination',
+                    text5: 'Disability support',
+                    text6: 'cancellation options',
+                    text7: 'Report',
+                  ),
+                  HelpCentre(
+                    text1: 'Hosting',
+                    text2: 'Airbnb your home',
+                    text3: 'Air cover for Hosts',
+                    text4: 'Hosting',
+                    text5: 'Resources',
+                    text6: 'Community',
+                    text7: '',
+                  ),
+                  HelpCentre(
+                    text1: 'Aurbnb',
+                    text2: 'Newsroom',
+                    text3: 'New features',
+                    text4: 'Careers',
+                    text5: 'Investors',
+                    text6: 'Airbnb.org',
+                    text7: '',
+                  ),
                 ],
-              )
+              ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
+  }
+
+  Column HelpCentre({
+    required String text1,
+    required String text2,
+    required String text3,
+    required String text4,
+    required String text5,
+    required String text6,
+    required String text7,
+  }) {
+    return Column(
+      children: [
+        Text(
+          text1,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(
+          height: 5,
+        ),
+        Text(
+          text2,
+          style: TextStyle(color: Colors.grey[500]),
+        ),
+        Text(text3, style: TextStyle(color: Colors.grey[500])),
+        Text(text4, style: TextStyle(color: Colors.grey[500])),
+        Text(text5, style: TextStyle(color: Colors.grey[500])),
+        Text(text6, style: TextStyle(color: Colors.grey[500])),
+        Text(text7, style: TextStyle(color: Colors.grey[500])),
+       const SizedBox(height: 15,)
+      ],
+    );
+  }
+
+  Column types({required String imagepath, required String text}) {
+    return Column(
+      children: [
+        Image.asset(
+          imagepath,
+          height: 50,
+          width: 50,
+        ),
+        Text(text),
+      ],
+    );
   }
 }
