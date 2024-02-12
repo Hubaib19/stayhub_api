@@ -1,6 +1,10 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:stay_hub_api/view/cabins.dart';
+import 'package:stay_hub_api/view/design.dart';
+import 'package:stay_hub_api/view/island.dart';
+import 'package:stay_hub_api/view/tropical.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -42,11 +46,31 @@ class HomeScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  types(imagepath: 'asset/aliens.png', text: 'OMG!'),
-                  types(imagepath: 'asset/cabin.png', text: 'Cabins'),
-                  types(imagepath: 'asset/island.png', text: 'Islands'),
-                  types(imagepath: 'asset/modern-house.png', text: 'Designs'),
-                  types(imagepath: 'asset/palm-tree.png', text: 'Tropicals'),
+                  types(
+                      imagepath: 'asset/aliens.png',
+                      text: 'OMG!',
+                      navi: const HomeScreen(),
+                      context: context),
+                  types(
+                      imagepath: 'asset/cabin.png',
+                      text: 'Cabins',
+                      navi: const CabinScreen(),
+                      context: context),
+                  types(
+                      imagepath: 'asset/island.png',
+                      text: 'Islands',
+                      navi: const IslandScreen(),
+                      context: context),
+                  types(
+                      imagepath: 'asset/modern-house.png',
+                      text: 'Designs',
+                      navi: const DesignScreen(),
+                      context: context),
+                  types(
+                      imagepath: 'asset/palm-tree.png',
+                      text: 'Tropicals',
+                      navi: const TropicalScreen(),
+                      context: context),
                 ],
               ),
               const SizedBox(
@@ -143,18 +167,31 @@ class HomeScreen extends StatelessWidget {
         Text(text5, style: TextStyle(color: Colors.grey[500])),
         Text(text6, style: TextStyle(color: Colors.grey[500])),
         Text(text7, style: TextStyle(color: Colors.grey[500])),
-       const SizedBox(height: 15,)
+        const SizedBox(
+          height: 15,
+        )
       ],
     );
   }
 
-  Column types({required String imagepath, required String text}) {
+  Column types(
+      {required String imagepath,
+      required String text,
+      required Widget navi,
+      required BuildContext context}) {
     return Column(
       children: [
-        Image.asset(
-          imagepath,
-          height: 50,
-          width: 50,
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => navi,
+            ));
+          },
+          child: Image.asset(
+            imagepath,
+            height: 50,
+            width: 50,
+          ),
         ),
         Text(text),
       ],
