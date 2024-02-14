@@ -8,7 +8,6 @@ class DesignScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(

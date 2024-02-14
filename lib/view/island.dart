@@ -8,7 +8,6 @@ class IslandScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(

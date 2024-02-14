@@ -8,7 +8,6 @@ class CabinScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purple,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
