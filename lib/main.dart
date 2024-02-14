@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stay_hub_api/view/home_page.dart';
-void main(){
+
+void main() {
   runApp(const MyApp());
 }
 

@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
         ),
         body: const Column(
           children: [
-             TabBar(tabs: [
+            TabBar(tabs: [
               Tab(
                 icon: ImageIcon(AssetImage('asset/aliens.png')),
                 text: 'OMG!',
@@ -58,11 +58,11 @@ class HomeScreen extends StatelessWidget {
             ]),
             Expanded(
               child: TabBarView(children: [
-              TopRatedScreen(),
-              CabinScreen(),
-              IslandScreen(),
-              DesignScreen(),
-              TropicalScreen()
+                TopRatedScreen(),
+                CabinScreen(),
+                IslandScreen(),
+                DesignScreen(),
+                TropicalScreen()
               ]),
             )
           ],

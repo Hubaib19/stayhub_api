@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 
 class TropicalScreen extends StatelessWidget {
@@ -5,7 +7,8 @@ class TropicalScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.blueAccent,
+    return Scaffold(
+      backgroundColor: Colors.blueAccent,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
@@ -93,4 +96,4 @@ class TropicalScreen extends StatelessWidget {
       ],
     );
   }
-  }
+}
