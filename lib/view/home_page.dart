@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:stay_hub_api/view/top_rated.dart';
-import 'package:stay_hub_api/view/cabins.dart';
-import 'package:stay_hub_api/view/design.dart';
-import 'package:stay_hub_api/view/island.dart';
-import 'package:stay_hub_api/view/tropical.dart';
+import 'package:stayhub_api/view/top_rated.dart';
+import 'package:stayhub_api/view/cabins.dart';
+import 'package:stayhub_api/view/design.dart';
+import 'package:stayhub_api/view/island.dart';
+import 'package:stayhub_api/view/tropical.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
