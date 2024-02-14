@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
 
-class IslandScreen extends StatelessWidget {
-  const IslandScreen({super.key});
+class TopRatedScreen extends StatelessWidget {
+  const TopRatedScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
           padding: const EdgeInsets.all(35.0),
           child: Column(
             children: [
+              Container(
+                color: Colors.amber,
+                width: 350,
+                height: 350,
+              ),
+              const SizedBox(height: 150),
+              Container(
+                color: Colors.amber,
+                width: 350,
+                height: 350,
+              ),
+              const SizedBox(height: 150),
+              Container(
+                color: Colors.amber,
+                width: 350,
+                height: 350,
+              ),
+              const SizedBox(height: 150),
               Container(
                 color: Colors.amber,
                 width: 350,
