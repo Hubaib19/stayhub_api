@@ -1,5 +1,5 @@
 // ignore: file_names
-// ignore_for_file: non_constant_identifier_names, file_names, duplicate_ignore
+// ignore_for_file: non_constant_identifier_names, file_names, duplicate_ignore, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:stayhub_api/model/datamodel.dart';
