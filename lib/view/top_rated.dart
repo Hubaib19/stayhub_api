@@ -2,12 +2,16 @@
 // ignore_for_file: non_constant_identifier_names, file_names, duplicate_ignore
 
 import 'package:flutter/material.dart';
+import 'package:stayhub_api/model/datamodel.dart';
+import 'package:stayhub_api/service/stayhubService.dart';
 
 class TopRatedScreen extends StatelessWidget {
-  const TopRatedScreen({super.key});
+  TopRatedScreen({super.key});
 
+  ApiService service = ApiService();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -15,32 +19,38 @@ class TopRatedScreen extends StatelessWidget {
           padding: const EdgeInsets.all(35.0),
           child: Column(
             children: [
-              Container(
-                color: Colors.amber,
-                width: 350,
-                height: 350,
-              ),
-              const SizedBox(height: 150),
-              Container(
-                color: Colors.amber,
-                width: 350,
-                height: 350,
-              ),
-              const SizedBox(height: 150),
-              Container(
-                color: Colors.amber,
-                width: 350,
-                height: 350,
-              ),
-              const SizedBox(height: 150),
-              Container(
-                color: Colors.amber,
-                width: 350,
-                height: 350,
-              ),
-              const SizedBox(height: 150),
-              const Divider(
-                thickness: 2,
+              SizedBox(
+                height: size.height,
+                child: FutureBuilder(
+                  future: service.fetchdata(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.hasData) {
+                      return ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          DataModel datas = snapshot.data![index];
+                          List<dynamic> images = datas.properties!;
+                          return Container(
+                            height: size.height * 0.2,
+                            width: size.width,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(images[0]),
+                                    fit: BoxFit.cover)),
+                          );
+                        },
+                      );
+                    } else {
+                      return Center(
+                        child: Text(snapshot.error.toString()),
+                      );
+                    }
+                  },
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

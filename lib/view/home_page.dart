@@ -24,15 +24,35 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           actions: [
-            IconButton(
-              icon: const Icon(Icons.person_2_rounded),
-              onPressed: () {},
-              iconSize: 50,
-              color: Colors.grey,
+            PopupMenuButton(
+              itemBuilder: (context) => [
+                const PopupMenuItem(
+                  value: 1,
+                  child: Text('Sign Up'),
+                ),
+                const PopupMenuItem(
+                  value: 2,
+                  child: Text('Login'),
+                ),
+                const PopupMenuItem(
+                  value: 3,
+                  child: Text('Host your home'),
+                ),
+                const PopupMenuItem(
+                  value: 3,
+                  child: Text('Help Centre'),
+                ),
+              ],
+              onSelected: (value) {},
+              icon: const Icon(
+                Icons.person_2_rounded,
+                size: 50,
+                color: Colors.grey,
+              ),
             ),
           ],
         ),
-        body: const Column(
+        body:  Column(
           children: [
             TabBar(tabs: [
               Tab(
