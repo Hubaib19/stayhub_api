@@ -1,6 +1,5 @@
 // ignore: file_names
 // ignore_for_file: non_constant_identifier_names, file_names, duplicate_ignore, must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:stayhub_api/model/datamodel.dart';
 import 'package:stayhub_api/service/stayhubService.dart';
@@ -34,13 +33,33 @@ class TopRatedScreen extends StatelessWidget {
                         itemBuilder: (context, index) {
                           DataModel datas = snapshot.data![index];
                           List<dynamic> images = datas.properties!;
-                          return Container(
-                            height: size.height * 0.2,
-                            width: size.width,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(
-                                    image: NetworkImage(images[0]),
-                                    fit: BoxFit.cover)),
+                          return Column(
+                            children: [
+                              Container(
+                                height: size.height * 0.4,
+                                width: size.width,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                          images[0],
+                                        ),
+                                        fit: BoxFit.cover)),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 1),
+                                child: Column(
+                                  children: [
+                                    Text(datas.title!),
+                                    Text(datas.location.toString()),
+                                    Text("₹${datas.price!}"),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              )
+                            ],
                           );
                         },
                       );
