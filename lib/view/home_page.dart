@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stayhub_api/view/host_home.dart';
 import 'package:stayhub_api/view/top_rated_screen/top_rated.dart';
 import 'package:stayhub_api/view/cabins_screen/cabins.dart';
 import 'package:stayhub_api/view/design_screen/design.dart';
@@ -34,9 +35,15 @@ class HomeScreen extends StatelessWidget {
                   value: 2,
                   child: Text('Login'),
                 ),
-                const PopupMenuItem(
+                PopupMenuItem(
                   value: 3,
-                  child: Text('Host your home'),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HostScreen()));
+                  },
+                  child: const Text('Host your home'),
                 ),
                 const PopupMenuItem(
                   value: 3,
@@ -52,9 +59,9 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        body:  Column(
+        body: Column(
           children: [
-            TabBar(tabs: [
+            const TabBar(tabs: [
               Tab(
                 icon: ImageIcon(AssetImage('asset/aliens.png')),
                 text: 'OMG!',
@@ -79,10 +86,10 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(children: [
                 TopRatedScreen(),
-                CabinScreen(),
-                IslandScreen(),
-                DesignScreen(),
-                TropicalScreen()
+                const CabinScreen(),
+                const IslandScreen(),
+                const DesignScreen(),
+                const TropicalScreen()
               ]),
             )
           ],
