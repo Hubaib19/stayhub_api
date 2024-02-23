@@ -15,14 +15,41 @@ class HomeScreen extends StatelessWidget {
       length: 5,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'stayhub',
-            style: TextStyle(
-              color: Colors.purple,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
-            ),
+          title: Row(
+            children: [
+             const Text(
+                'stayhub',
+                style: TextStyle(
+                  color: Colors.purple,
+                  fontStyle: FontStyle.italic,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+              ),
+             const SizedBox(
+                width: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HostScreen()),
+                  );
+                },
+                child: const Column(
+                  children: [
+                    Text(
+                      'Host your',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      'home',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
           actions: [
             PopupMenuButton(
