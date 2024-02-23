@@ -113,10 +113,10 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(children: [
                 TopRatedScreen(),
-                const CabinScreen(),
-                const IslandScreen(),
-                const DesignScreen(),
-                const TropicalScreen()
+                 CabinScreen(),
+                 IslandScreen(),
+                 DesignScreen(),
+                 TropicalScreen()
               ]),
             )
           ],

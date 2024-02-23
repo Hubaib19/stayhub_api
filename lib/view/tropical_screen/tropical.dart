@@ -1,12 +1,15 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:stayhub_api/model/datamodel.dart';
+import 'package:stayhub_api/service/stayhubService.dart';
 
 class TropicalScreen extends StatelessWidget {
-  const TropicalScreen({super.key});
-
+   TropicalScreen({super.key});
+ ApiService service = ApiService();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -14,14 +17,58 @@ class TropicalScreen extends StatelessWidget {
           padding: const EdgeInsets.all(35.0),
           child: Column(
             children: [
-              Container(
-                color: Colors.amber,
-                width: 350,
-                height: 350,
-              ),
-              const SizedBox(height: 150),
-              const Divider(
-                thickness: 2,
+              SizedBox(
+                height: size.height,
+                child: FutureBuilder(
+                  future: service.fetchdata(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } else if (snapshot.hasData) {
+                      return ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          DataModel datas = snapshot.data![index];
+                          List<dynamic> images = datas.properties!;
+                          return Column(
+                            children: [
+                              Container(
+                                height: size.height * 0.4,
+                                width: size.width,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                          images[0],
+                                        ),
+                                        fit: BoxFit.cover)),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 1),
+                                child: Column(
+                                  children: [
+                                    Text(datas.title!),
+                                    Text(datas.location.toString()),
+                                    Text("₹${datas.price!}"),
+                                  ],
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              )
+                            ],
+                          );
+                        },
+                      );
+                    } else {
+                      return Center(
+                        child: Text(snapshot.error.toString()),
+                      );
+                    }
+                  },
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
