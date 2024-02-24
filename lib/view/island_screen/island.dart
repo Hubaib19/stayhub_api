@@ -1,12 +1,12 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:stayhub_api/model/datamodel.dart';
 import 'package:stayhub_api/service/stayhubService.dart';
 
 class IslandScreen extends StatelessWidget {
-   IslandScreen({super.key});
- ApiService service = ApiService();
+  IslandScreen({super.key});
+  ApiService service = ApiService();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

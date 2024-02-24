@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:stayhub_api/model/datamodel.dart';
 import 'package:stayhub_api/service/stayhubService.dart';
+import 'package:stayhub_api/view/top_rated_screen/coconest.dart';
 
 class TopRatedScreen extends StatelessWidget {
   TopRatedScreen({super.key});
@@ -35,16 +36,25 @@ class TopRatedScreen extends StatelessWidget {
                           List<dynamic> images = datas.properties!;
                           return Column(
                             children: [
-                              Container(
-                                height: size.height * 0.4,
-                                width: size.width,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                          images[0],
-                                        ),
-                                        fit: BoxFit.cover)),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const CoconestScreen()));
+                                },
+                                child: Container(
+                                  height: size.height * 0.4,
+                                  width: size.width,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            images[0],
+                                          ),
+                                          fit: BoxFit.cover)),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 1),

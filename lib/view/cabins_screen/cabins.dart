@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:stayhub_api/service/stayhubService.dart';
@@ -6,7 +6,7 @@ import 'package:stayhub_api/service/stayhubService.dart';
 import '../../model/datamodel.dart';
 
 class CabinScreen extends StatelessWidget {
-   CabinScreen({super.key});
+  CabinScreen({super.key});
 
   ApiService service = ApiService();
   @override

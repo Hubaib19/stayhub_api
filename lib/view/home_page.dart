@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
         appBar: AppBar(
           title: Row(
             children: [
-             const Text(
+              const Text(
                 'stayhub',
                 style: TextStyle(
                   color: Colors.purple,
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                   fontSize: 30,
                 ),
               ),
-             const SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               GestureDetector(
@@ -113,10 +113,10 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: TabBarView(children: [
                 TopRatedScreen(),
-                 CabinScreen(),
-                 IslandScreen(),
-                 DesignScreen(),
-                 TropicalScreen()
+                CabinScreen(),
+                IslandScreen(),
+                DesignScreen(),
+                TropicalScreen()
               ]),
             )
           ],
