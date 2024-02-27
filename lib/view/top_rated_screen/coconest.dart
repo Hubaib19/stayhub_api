@@ -49,15 +49,15 @@ class CoconestScreen extends StatelessWidget {
             itemBuilder: (context) => [
               const PopupMenuItem(
                 value: 1,
-                child: Text('Sign Up'),
+                child: Text('Hello'),
               ),
               const PopupMenuItem(
                 value: 2,
-                child: Text('Login'),
+                child: Text('Account'),
               ),
               const PopupMenuItem(
                 value: 3,
-                child: Text('Host your home'),
+                child: Text('Logout'),
               ),
              
             ],
@@ -68,7 +68,14 @@ class CoconestScreen extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
-        ],elevation: 5,
+        ],
+      ),
+      body: const Column(
+        children: [
+          Row(
+            
+          ),
+        ],
       ),
     );
   }
