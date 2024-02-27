@@ -73,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                   child: const Text('Host your home'),
                 ),
                 const PopupMenuItem(
-                  value: 3,
+                  value: 4,
                   child: Text('Help Centre'),
                 ),
               ],

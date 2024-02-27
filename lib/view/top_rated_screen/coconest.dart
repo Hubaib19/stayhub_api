@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stayhub_api/view/host_home.dart';
 
 class CoconestScreen extends StatelessWidget {
   const CoconestScreen({super.key});
@@ -6,74 +7,69 @@ class CoconestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+      appBar: AppBar(
+        title: Row(
           children: [
-            HelpCentre(
-              text1: 'Support',
-              text2: 'Help centre',
-              text3: 'Air cover',
-              text4: 'Air-discrimination',
-              text5: 'Disability support',
-              text6: 'cancellation options',
-              text7: 'Report',
+            const Text(
+              'stayhub',
+              style: TextStyle(
+                color: Colors.purple,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+              ),
             ),
-            HelpCentre(
-              text1: 'Hosting',
-              text2: 'Airbnb your home',
-              text3: 'Air cover for Hosts',
-              text4: 'Hosting',
-              text5: 'Resources',
-              text6: 'Community',
-              text7: '',
+            const SizedBox(
+              width: 10,
             ),
-            HelpCentre(
-              text1: 'Airbnb',
-              text2: 'Newsroom',
-              text3: 'New features',
-              text4: 'Careers',
-              text5: 'Investors',
-              text6: 'Airbnb.org',
-              text7: '',
-            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HostScreen()),
+                );
+              },
+              child: const Column(
+                children: [
+                  Text(
+                    'Host your',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    'home',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
+            )
           ],
         ),
+        actions: [
+          PopupMenuButton(
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: 1,
+                child: Text('Sign Up'),
+              ),
+              const PopupMenuItem(
+                value: 2,
+                child: Text('Login'),
+              ),
+              const PopupMenuItem(
+                value: 3,
+                child: Text('Host your home'),
+              ),
+             
+            ],
+            onSelected: (value) {},
+            icon: const Icon(
+              Icons.person_2_rounded,
+              size: 50,
+              color: Colors.grey,
+            ),
+          ),
+        ],elevation: 5,
       ),
-    );
-  }
-
-  Column HelpCentre({
-    required String text1,
-    required String text2,
-    required String text3,
-    required String text4,
-    required String text5,
-    required String text6,
-    required String text7,
-  }) {
-    return Column(
-      children: [
-        Text(
-          text1,
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Text(
-          text2,
-          style: TextStyle(color: Colors.grey[500]),
-        ),
-        Text(text3, style: TextStyle(color: Colors.grey[500])),
-        Text(text4, style: TextStyle(color: Colors.grey[500])),
-        Text(text5, style: TextStyle(color: Colors.grey[500])),
-        Text(text6, style: TextStyle(color: Colors.grey[500])),
-        Text(text7, style: TextStyle(color: Colors.grey[500])),
-        const SizedBox(
-          height: 15,
-        )
-      ],
     );
   }
 }
