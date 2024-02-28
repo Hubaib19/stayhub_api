@@ -69,37 +69,120 @@ class CoconestScreen extends StatelessWidget {
           ),
         ],
       ),
-      body:  Column(
-        children: [
-         const Padding(
-            padding: EdgeInsets.only(left: 40, top: 50),
-            child: Row(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(left: 40, top: 50),
+              child: Row(
+                children: [
+                  Text(
+                    'Coconest Langkawi',
+                    style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w500,
+                        fontStyle: FontStyle.italic),
+                  )
+                ],
+              ),
+            ),
+            Column(
               children: [
-                Text(
-                  'Coconest Langkawi',
-                  style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500,
-                      fontStyle: FontStyle.italic),
-                )
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Container(
+                    height: 200,
+                    width: 320,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage('asset/Screenshot (68).png'))),
+                  ),
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Container(
+                    height: 200,
+                    width: 320,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage('asset/Screenshot (22).png'))),
+                  ),
+                ),
               ],
             ),
-          ),
-          Row(
-            children: [
-              Container(
-                height: 250,
-                width: 120,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('asset/Screenshot (68).png'))
-                ),
-              )
-            ],
-          )
-        ],
+            const SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 40.0),
+              child: Row(
+                children: [
+                  images(imagepath: 'asset/WIN_20231220_16_53_17_Pro.jpg'),
+                  const SizedBox(
+                    width: 9,
+                  ),
+                  images(imagepath: 'asset/Screenshot (67).png'),
+                  const SizedBox(
+                    width: 9,
+                  ),
+                  images(imagepath: 'asset/Vx1Mgl.webp'),
+                  const SizedBox(
+                    width: 9,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 40),
+              child: Row(
+                children: [
+                  Container(
+                    height: 1020,
+                    width: 170,
+                    color: Colors.amber,
+                    child: const Column(
+                      children: [
+                        Text(
+                          'Bedrooms: 3 Bathrooms: 4 Guest Capacity: 6',
+                          style: TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          'About:Enjoy the sounds of nature when you stay in this unique place.A shuttle will be arranged to a floating platform where the Coconest is attached. Relax on a net overhanging from the water with 360 views of the surrounding landscape including an island and King Kong mountain. Watch boats drive by as you float on the water of Tanjung Rhu in a private space dedicated for Guests looking to get away from it all, tune out and immerse themselves in nature.',
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.w400),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
+    );
+  }
+
+  Row images({required String imagepath}) {
+    return Row(
+      children: [
+        Container(
+          height: 150,
+          width: 100,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  fit: BoxFit.fill, image: AssetImage(imagepath))),
+        )
+      ],
     );
   }
 }
