@@ -59,7 +59,6 @@ class CoconestScreen extends StatelessWidget {
                 value: 3,
                 child: Text('Logout'),
               ),
-             
             ],
             onSelected: (value) {},
             icon: const Icon(
@@ -70,11 +69,35 @@ class CoconestScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: const Column(
+      body:  Column(
         children: [
-          Row(
-            
+         const Padding(
+            padding: EdgeInsets.only(left: 40, top: 50),
+            child: Row(
+              children: [
+                Text(
+                  'Coconest Langkawi',
+                  style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.italic),
+                )
+              ],
+            ),
           ),
+          Row(
+            children: [
+              Container(
+                height: 250,
+                width: 120,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('asset/Screenshot (68).png'))
+                ),
+              )
+            ],
+          )
         ],
       ),
     );

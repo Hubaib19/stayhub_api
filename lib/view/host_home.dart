@@ -128,7 +128,7 @@ class HostScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'at an estimated ₹3,580 a night',
+                            'at an estimated ₹3,580 a n8',
                             style: TextStyle(
                               fontSize: 20,
                             ),
