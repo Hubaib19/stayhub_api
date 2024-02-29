@@ -42,7 +42,7 @@ class TopRatedScreen extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              const CoconestScreen()));
+                                               CoconestScreen()));
                                 },
                                 child: Container(
                                   height: size.height * 0.4,

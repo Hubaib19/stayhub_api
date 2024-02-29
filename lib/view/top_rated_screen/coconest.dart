@@ -138,17 +138,16 @@ class CoconestScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 40),
               child: Row(
                 children: [
-                  Container(
+                  const SizedBox(
                     height: 1020,
                     width: 170,
-                    color: Colors.amber,
-                    child: const Column(
+                    child: Column(
                       children: [
                         Text(
                           'Bedrooms: 3 Bathrooms: 4 Guest Capacity: 6',
@@ -160,6 +159,37 @@ class CoconestScreen extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 17, fontWeight: FontWeight.w400),
                         )
+                      ],
+                    ),
+                  ),
+                  Container(
+                    width: 150,
+                    height: 1020,
+                    decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, right: 40),
+                          child: Column(
+                            children: [
+                              const Text(
+                                'Check-in:',
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              Container(
+                                width: 100,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: Colors.grey,
+                                    )),
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   )
