@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:stayhub_api/view/host_home.dart';
-import 'package:stayhub_api/view/top_rated_screen/coconest/coconest_reserve.dart';
+import 'package:stayhub_api/view/top_rated_screen/fairytale/fairy_reserve.dart';
 
 class CoconestScreen extends StatelessWidget {
   const CoconestScreen({Key? key});
@@ -80,7 +80,7 @@ class CoconestScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    'Coconest Langkawi',
+                    'Modern fairytale',
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w500,
@@ -213,7 +213,7 @@ class CoconestScreen extends StatelessWidget {
                                                 context,
                                                 MaterialPageRoute(
                                                     builder: (context) =>
-                                                        const CocoReserve()),
+                                                        const FairyReserve()),
                                               );
                                             },
                                             child: const Text(
