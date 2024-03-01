@@ -40,48 +40,99 @@ class CocoReserve extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Padding(
-                padding: EdgeInsets.only(right: 60),
+              Padding(
+                padding: const EdgeInsets.only(right: 60),
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       'Checkin:29/02/2024',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
                           fontWeight: FontWeight.w500),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    const Text(
                       'Checkin:29/02/2024',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 25,
                           fontWeight: FontWeight.w500),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
-                    Divider(),
-                    SizedBox(
+                    const Divider(),
+                    const SizedBox(
                       height: 25,
                     ),
-                     Padding(
-                       padding: EdgeInsets.all(8.0),
-                       child: Column(
-                         children: [
-                           Text(
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: [
+                          const Text(
                             'Amount Price:       5025',
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 25,
                                 fontWeight: FontWeight.w500),
-                                               ),
-                         ],
-                       ),
-                     ),
+                          ),
+                          const Text(
+                            'Insurance:              0.00',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          const Text(
+                            'TAX:                         450',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          const Text(
+                            'Total Amount: 5475',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 100.0, bottom: 20),
+                            child: Container(
+                              height: 70,
+                              width: 150,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.yellow[600],
+                                borderRadius: const BorderRadius.only(
+                                  bottomLeft: Radius.circular(25),
+                                  topRight: Radius.circular(25),
+                                ),
+                              ),
+                              child: const Text(
+                                'PAY NOW',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               )
