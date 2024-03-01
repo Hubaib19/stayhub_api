@@ -1,5 +1,9 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:stayhub_api/view/host_home.dart';
+import 'package:stayhub_api/view/top_rated_screen/coconest/coconest_reserve.dart';
 
 class CoconestScreen extends StatelessWidget {
   const CoconestScreen({Key? key});
@@ -137,7 +141,9 @@ class CoconestScreen extends StatelessWidget {
                 ],
               ),
             ),
-          const  SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
             Padding(
               padding: const EdgeInsets.only(
                 left: 40,
@@ -197,17 +203,27 @@ class CoconestScreen extends StatelessWidget {
                                         width: 100,
                                         height: 50,
                                         decoration: BoxDecoration(
-                                            color: Colors.purple,
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                           ),
-                                        child: const Center(
-                                          child: Text(
-                                            'Reserve',
-                                            style: TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
+                                          color: Colors.purple,
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: Center(
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const CocoReserve()),
+                                              );
+                                            },
+                                            child: const Text(
+                                              'Reserve',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                           ),
                                         ),
@@ -304,8 +320,8 @@ class CoconestScreen extends StatelessWidget {
           height: 50,
           decoration: BoxDecoration(
             color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-              ),
+            borderRadius: BorderRadius.circular(5),
+          ),
           child: Center(
             child: Text(
               text2,

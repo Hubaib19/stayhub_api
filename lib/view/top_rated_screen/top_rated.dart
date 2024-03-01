@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:stayhub_api/model/datamodel.dart';
 import 'package:stayhub_api/service/stayhubService.dart';
-import 'package:stayhub_api/view/top_rated_screen/coconest.dart';
+import 'package:stayhub_api/view/top_rated_screen/coconest/coconest.dart';
 
 class TopRatedScreen extends StatelessWidget {
   TopRatedScreen({super.key});
