@@ -84,7 +84,7 @@ class TropicalScreen extends StatelessWidget {
                   ),
                   HelpCentre(
                     text1: 'Hosting',
-                    text2: 'Airbnb your home',
+                    text2: 'Stayhub your home',
                     text3: 'Air cover for Hosts',
                     text4: 'Hosting',
                     text5: 'Resources',
@@ -92,12 +92,12 @@ class TropicalScreen extends StatelessWidget {
                     text7: '',
                   ),
                   HelpCentre(
-                    text1: 'Airbnb',
+                    text1: 'Stayhub',
                     text2: 'Newsroom',
                     text3: 'New features',
                     text4: 'Careers',
                     text5: 'Investors',
-                    text6: 'Airbnb.org',
+                    text6: 'Stayhub.org',
                     text7: '',
                   ),
                 ],

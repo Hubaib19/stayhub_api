@@ -5,7 +5,7 @@ import 'package:stayhub_api/model/datamodel.dart';
 
 class ApiService{
   Dio dio = Dio();
-  final String url = "https://airbnb-backend-yzyl.onrender.com/api/data/listings";
+  final String url = "https://Stayhub-backend-yzyl.onrender.com/api/data/listings";
 
   Future<List<DataModel>> fetchdata()async{
     final response = await dio.get(url);

@@ -8,7 +8,7 @@ class DataModel {
   int? bathroomcount;
   int? guestcount;
   int? price;
-  String? location;
+  LocationValue? location;
   
   DataModel(
       {required this.id,
@@ -36,5 +36,16 @@ class DataModel {
         title: json["title"],
         location: json["location"]
         );
+  }
+}
+
+class LocationValue {
+  String? location;
+  LocationValue({
+    required this.location
+  });
+
+  factory LocationValue.fromJson(Map<String,dynamic>json){
+    return LocationValue(location: json["location"]);
   }
 }

@@ -1,11 +1,15 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:stayhub_api/model/datamodel.dart';
 import 'package:stayhub_api/view/host_home.dart';
 import 'package:stayhub_api/view/top_rated_screen/coconest/coconest_reserve.dart';
 
 class CoconestScreen extends StatelessWidget {
-  const CoconestScreen({Key? key});
+   CoconestScreen({Key? key,required this.data});
+
+  DataModel data;
 
   @override
   Widget build(BuildContext context) {
@@ -75,12 +79,12 @@ class CoconestScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Padding(
+             Padding(
               padding: EdgeInsets.only(left: 40, top: 50),
               child: Row(
                 children: [
                   Text(
-                    'Coconest Langkawi',
+                    data.title!,
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w500,
@@ -89,58 +93,28 @@ class CoconestScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
+            SizedBox(
+              height: 300,
+              child: GridView.builder(
+                itemCount: data.properties!.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3), 
+              itemBuilder: (context, index) {
+                final images = data.properties![index];
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: Container(
                     height: 200,
-                    width: 320,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage('asset/Screenshot (68).png'))),
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(image: NetworkImage(images),fit: BoxFit.cover)
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: Container(
-                    height: 200,
-                    width: 320,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage('asset/Screenshot (22).png'))),
-                  ),
-                ),
-              ],
+                );
+              },),
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0),
-              child: Row(
-                children: [
-                  images(imagepath: 'asset/WIN_20231220_16_53_17_Pro.jpg'),
-                  const SizedBox(
-                    width: 9,
-                  ),
-                  images(imagepath: 'asset/Screenshot (67).png'),
-                  const SizedBox(
-                    width: 9,
-                  ),
-                  images(imagepath: 'asset/Vx1Mgl.webp'),
-                  const SizedBox(
-                    width: 9,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(
+
+             SizedBox(
               height: 10,
             ),
             Padding(
@@ -266,7 +240,7 @@ class CoconestScreen extends StatelessWidget {
                 ),
                 helpcentre(
                   text1: 'Hosting',
-                  text2: 'Airbnb your home',
+                  text2: 'Stayhub your home',
                   text3: 'Air cover for Hosts',
                   text4: 'Hosting',
                   text5: 'Resources',
@@ -274,12 +248,12 @@ class CoconestScreen extends StatelessWidget {
                   text7: '',
                 ),
                 helpcentre(
-                  text1: 'Airbnb',
+                  text1: 'Stayhub',
                   text2: 'Newsroom',
                   text3: 'New features',
                   text4: 'Careers',
                   text5: 'Investors',
-                  text6: 'Airbnb.org',
+                  text6: 'Stayhub.org',
                   text7: '',
                 ),
               ],

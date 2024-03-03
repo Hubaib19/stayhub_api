@@ -9,6 +9,8 @@ class TopRatedScreen extends StatelessWidget {
   TopRatedScreen({super.key});
 
   ApiService service = ApiService();
+
+  List<DataModel> omglist = [];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -29,10 +31,16 @@ class TopRatedScreen extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     } else if (snapshot.hasData) {
+                      for (var i = 0; i < snapshot.data!.length; i++) {
+                            if (snapshot.data![i].category=="OMG!") {
+                              omglist.add(snapshot.data![i]);
+                            }
+                          }
                       return ListView.builder(
-                        itemCount: snapshot.data!.length,
+                        itemCount: omglist.length,
                         itemBuilder: (context, index) {
-                          DataModel datas = snapshot.data![index];
+                          DataModel datas = omglist[index];
+                          
                           List<dynamic> images = datas.properties!;
                           return Column(
                             children: [
@@ -42,7 +50,7 @@ class TopRatedScreen extends StatelessWidget {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                               CoconestScreen()));
+                                               CoconestScreen(data: datas,)));
                                 },
                                 child: Container(
                                   height: size.height * 0.4,
@@ -95,7 +103,7 @@ class TopRatedScreen extends StatelessWidget {
                   ),
                   HelpCentre(
                     text1: 'Hosting',
-                    text2: 'Airbnb your home',
+                    text2: 'Stayhub your home',
                     text3: 'Air cover for Hosts',
                     text4: 'Hosting',
                     text5: 'Resources',
@@ -103,12 +111,12 @@ class TopRatedScreen extends StatelessWidget {
                     text7: '',
                   ),
                   HelpCentre(
-                    text1: 'Airbnb',
+                    text1: 'Stayhub',
                     text2: 'Newsroom',
                     text3: 'New features',
                     text4: 'Careers',
                     text5: 'Investors',
-                    text6: 'Airbnb.org',
+                    text6: 'Stayhub.org',
                     text7: '',
                   ),
                 ],

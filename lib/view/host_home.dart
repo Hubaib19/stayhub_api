@@ -101,7 +101,7 @@ class HostScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
-                      'Airbnb it .',
+                      'Stayhub it .',
                       style: TextStyle(
                           color: Colors.purple,
                           fontSize: 45,
@@ -160,12 +160,12 @@ class HostScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Airbnb is easily',
+                      'Stayhub is easily',
                       style:
                           TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      ' with Airbnb Setup',
+                      ' with Stayhub Setup',
                       style:
                           TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
                     ),
@@ -173,7 +173,7 @@ class HostScreen extends StatelessWidget {
                       height: 15,
                     ),
                     Image(
-                      image: AssetImage('asset/airbnb2.jpg'),
+                      image: AssetImage('asset/Stayhub2.jpg'),
                       width: double.infinity,
                     )
                   ],
@@ -236,7 +236,7 @@ class HostScreen extends StatelessWidget {
                     ),
                     support(
                       text1: 'Hosting',
-                      text2: 'Airbnb your home',
+                      text2: 'Stayhub your home',
                       text3: 'Air cover for Hosts',
                       text4: 'Hosting',
                       text5: 'Resources',
@@ -244,12 +244,12 @@ class HostScreen extends StatelessWidget {
                       text7: '',
                     ),
                     support(
-                      text1: 'Airbnb',
+                      text1: 'Stayhub',
                       text2: 'Newsroom',
                       text3: 'New features',
                       text4: 'Careers',
                       text5: 'Investors',
-                      text6: 'Airbnb.org',
+                      text6: 'Stayhub.org',
                       text7: '',
                     ),
                   ],
