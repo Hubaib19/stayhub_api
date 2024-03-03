@@ -32,15 +32,15 @@ class TopRatedScreen extends StatelessWidget {
                       );
                     } else if (snapshot.hasData) {
                       for (var i = 0; i < snapshot.data!.length; i++) {
-                            if (snapshot.data![i].category=="OMG!") {
-                              omglist.add(snapshot.data![i]);
-                            }
-                          }
+                        if (snapshot.data![i].category == "OMG!") {
+                          omglist.add(snapshot.data![i]);
+                        }
+                      }
                       return ListView.builder(
                         itemCount: omglist.length,
                         itemBuilder: (context, index) {
                           DataModel datas = omglist[index];
-                          
+
                           List<dynamic> images = datas.properties!;
                           return Column(
                             children: [
@@ -49,8 +49,9 @@ class TopRatedScreen extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                               CoconestScreen(data: datas,)));
+                                          builder: (context) => CoconestScreen(
+                                                data: datas,
+                                              )));
                                 },
                                 child: Container(
                                   height: size.height * 0.4,

@@ -9,7 +9,7 @@ class DataModel {
   int? guestcount;
   int? price;
   LocationValue? location;
-  
+
   DataModel(
       {required this.id,
       required this.bathroomcount,
@@ -20,8 +20,7 @@ class DataModel {
       required this.properties,
       required this.roomcount,
       required this.title,
-      required this.location
-      });
+      required this.location});
 
   factory DataModel.fromJson(Map<String, dynamic> json) {
     return DataModel(
@@ -34,18 +33,15 @@ class DataModel {
         properties: json["properties"],
         roomcount: json["roomCount"],
         title: json["title"],
-        location: json["location"]
-        );
+        location: json["location"]);
   }
 }
 
 class LocationValue {
   String? location;
-  LocationValue({
-    required this.location
-  });
+  LocationValue({required this.location});
 
-  factory LocationValue.fromJson(Map<String,dynamic>json){
+  factory LocationValue.fromJson(Map<String, dynamic> json) {
     return LocationValue(location: json["location"]);
   }
 }
