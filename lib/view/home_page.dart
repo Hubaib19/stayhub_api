@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:stayhub_api/view/host_home.dart';
-import 'package:stayhub_api/view/top_rated_screen/top_rated.dart';
-import 'package:stayhub_api/view/cabins_screen/cabins.dart';
-import 'package:stayhub_api/view/design_screen/design.dart';
-import 'package:stayhub_api/view/island_screen/island.dart';
-import 'package:stayhub_api/view/tropical_screen/tropical.dart';
+import 'package:Airbnb_api/view/host_home.dart';
+import 'package:Airbnb_api/view/top_rated_screen/top_rated.dart';
+import 'package:Airbnb_api/view/cabins_screen/cabins.dart';
+import 'package:Airbnb_api/view/design_screen/design.dart';
+import 'package:Airbnb_api/view/island_screen/island.dart';
+import 'package:Airbnb_api/view/tropical_screen/tropical.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           title: Row(
             children: [
               const Text(
-                'stayhub',
+                'Stayhub',
                 style: TextStyle(
                   color: Colors.purple,
                   fontStyle: FontStyle.italic,

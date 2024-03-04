@@ -1,8 +1,8 @@
 // ignore_for_file: non_constant_identifier_names, must_be_immutable
 
+import 'package:Airbnb_api/service/stayhubService.dart';
 import 'package:flutter/material.dart';
-import 'package:stayhub_api/model/datamodel.dart';
-import 'package:stayhub_api/service/stayhubService.dart';
+import 'package:Airbnb_api/model/datamodel.dart';
 
 class IslandScreen extends StatelessWidget {
   IslandScreen({super.key});
@@ -84,7 +84,7 @@ class IslandScreen extends StatelessWidget {
                   ),
                   HelpCentre(
                     text1: 'Hosting',
-                    text2: 'Stayhub your home',
+                    text2: 'Airbnb your home',
                     text3: 'Air cover for Hosts',
                     text4: 'Hosting',
                     text5: 'Resources',
@@ -92,12 +92,12 @@ class IslandScreen extends StatelessWidget {
                     text7: '',
                   ),
                   HelpCentre(
-                    text1: 'Stayhub',
+                    text1: 'Airbnb',
                     text2: 'Newsroom',
                     text3: 'New features',
                     text4: 'Careers',
                     text5: 'Investors',
-                    text6: 'Stayhub.org',
+                    text6: 'Airbnb.org',
                     text7: '',
                   ),
                 ],

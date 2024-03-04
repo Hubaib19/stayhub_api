@@ -1,9 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:stayhub_api/model/datamodel.dart';
-import 'package:stayhub_api/view/host_home.dart';
-import 'package:stayhub_api/view/top_rated_screen/coconest/coconest_reserve.dart';
+import 'package:Airbnb_api/model/datamodel.dart';
+import 'package:Airbnb_api/view/host_home.dart';
+import 'package:Airbnb_api/view/top_rated_screen/coconest/coconest_reserve.dart';
 
 class CoconestScreen extends StatelessWidget {
   CoconestScreen({Key? key, required this.data});
@@ -17,7 +17,7 @@ class CoconestScreen extends StatelessWidget {
         title: Row(
           children: [
             const Text(
-              'stayhub',
+              'Airbnb',
               style: TextStyle(
                 color: Colors.purple,
                 fontStyle: FontStyle.italic,
@@ -240,7 +240,7 @@ class CoconestScreen extends StatelessWidget {
                 ),
                 helpcentre(
                   text1: 'Hosting',
-                  text2: 'Stayhub your home',
+                  text2: 'Airbnb your home',
                   text3: 'Air cover for Hosts',
                   text4: 'Hosting',
                   text5: 'Resources',
@@ -248,12 +248,12 @@ class CoconestScreen extends StatelessWidget {
                   text7: '',
                 ),
                 helpcentre(
-                  text1: 'Stayhub',
+                  text1: 'Airbnb',
                   text2: 'Newsroom',
                   text3: 'New features',
                   text4: 'Careers',
                   text5: 'Investors',
-                  text6: 'Stayhub.org',
+                  text6: 'Airbnb.org',
                   text7: '',
                 ),
               ],

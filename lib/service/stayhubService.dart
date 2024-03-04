@@ -1,12 +1,12 @@
 // ignore_for_file: file_names
 
 import 'package:dio/dio.dart';
-import 'package:stayhub_api/model/datamodel.dart';
+import 'package:Airbnb_api/model/datamodel.dart';
 
 class ApiService {
   Dio dio = Dio();
   final String url =
-      "https://Stayhub-backend-yzyl.onrender.com/api/data/listings";
+      "https://Airbnb-backend-yzyl.onrender.com/api/data/listings";
 
   Future<List<DataModel>> fetchdata() async {
     final response = await dio.get(url);

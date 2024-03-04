@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HostScreen extends StatelessWidget {
-  const HostScreen({super.key});
+  const HostScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class HostScreen extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(top: 2),
                       child: Text(
-                        'stayhub',
+                        'Stayhub',
                         style: TextStyle(
                           color: Colors.purple,
                           fontStyle: FontStyle.italic,
@@ -100,22 +100,29 @@ class HostScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Stayhub it .',
-                      style: TextStyle(
-                          color: Colors.purple,
-                          fontSize: 45,
-                          fontWeight: FontWeight.bold),
+                   const Padding(
+                      padding:  EdgeInsets.only(right: 30),
+                      child:  Column(
+                        children: [
+                          Text(
+                            'Stayhub it .',
+                            style: TextStyle(
+                                color: Colors.purple,
+                                fontSize: 45,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text('You could',
+                              style: TextStyle(
+                                  fontSize: 40, fontWeight: FontWeight.bold)),
+                          Text('earn',
+                              style: TextStyle(
+                                  fontSize: 40, fontWeight: FontWeight.bold)),
+                          Text('₹0',
+                              style: TextStyle(
+                                  fontSize: 40, fontWeight: FontWeight.bold)),
+                        ],
+                      ),
                     ),
-                    const Text('You could',
-                        style: TextStyle(
-                            fontSize: 45, fontWeight: FontWeight.bold)),
-                    const Text('earn',
-                        style: TextStyle(
-                            fontSize: 45, fontWeight: FontWeight.bold)),
-                    const Text('₹0',
-                        style: TextStyle(
-                            fontSize: 45, fontWeight: FontWeight.bold)),
                     const Padding(
                       padding: EdgeInsets.only(right: 10),
                       child: Row(
@@ -128,9 +135,9 @@ class HostScreen extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            'at an estimated ₹3,580 a n8',
+                            'at an estimated ₹3,580 a night',
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 18,
                             ),
                           )
                         ],
@@ -162,19 +169,22 @@ class HostScreen extends StatelessWidget {
                     Text(
                       'Stayhub is easily',
                       style:
-                          TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       ' with Stayhub Setup',
                       style:
-                          TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+                          TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: 15,
                     ),
-                    Image(
-                      image: AssetImage('asset/Stayhub2.jpg'),
+                    SizedBox(
                       width: double.infinity,
+                      child: Image(
+                        image: AssetImage('asset/airbnb2.jpg'),
+                        fit: BoxFit.cover,
+                      ),
                     )
                   ],
                 ),
@@ -184,7 +194,7 @@ class HostScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    helpcentre(
+                    helpCentre(
                       text1: 'Guidance',
                       text2: 'We will match',
                       text3: 'you with a',
@@ -193,16 +203,16 @@ class HostScreen extends StatelessWidget {
                       text6: 'first question',
                       text7: 'to your first guest.',
                     ),
-                    helpcentre(
+                    helpCentre(
                       text1: 'Experience',
                       text2: 'For your first',
                       text3: 'booking, you can',
                       text4: 'choose to welcome',
                       text5: 'an experienced',
                       text6: 'guest who has at',
-                      text7: 'leat three stays.',
+                      text7: 'least three stays.',
                     ),
-                    helpcentre(
+                    helpCentre(
                       text1: 'Support',
                       text2: 'New hosts get',
                       text3: 'one-tap access',
@@ -296,7 +306,7 @@ class HostScreen extends StatelessWidget {
     );
   }
 
-  Column helpcentre({
+  Column helpCentre({
     required String text1,
     required String text2,
     required String text3,

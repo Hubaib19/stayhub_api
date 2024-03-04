@@ -1,9 +1,10 @@
 // ignore: file_names
 // ignore_for_file: non_constant_identifier_names, file_names, duplicate_ignore, must_be_immutable
+import 'package:Airbnb_api/model/datamodel.dart';
+import 'package:Airbnb_api/service/stayhubService.dart';
+import 'package:Airbnb_api/view/top_rated_screen/coconest/coconest.dart';
 import 'package:flutter/material.dart';
-import 'package:stayhub_api/model/datamodel.dart';
-import 'package:stayhub_api/service/stayhubService.dart';
-import 'package:stayhub_api/view/top_rated_screen/coconest/coconest.dart';
+
 
 class TopRatedScreen extends StatelessWidget {
   TopRatedScreen({super.key});
