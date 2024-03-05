@@ -1,11 +1,15 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, must_be_immutable
 
+import 'package:Airbnb_api/service/stayhubService.dart';
 import 'package:flutter/material.dart';
+import 'package:Airbnb_api/model/datamodel.dart';
 import 'package:Airbnb_api/view/host_home.dart';
-import 'package:Airbnb_api/view/top_rated_screen/fairytale/fairy_reserve.dart';
 
-class CoconestScreen extends StatelessWidget {
-  const CoconestScreen({Key? key});
+class IslandDetails extends StatelessWidget {
+  IslandDetails({Key? key, required this.data});
+
+  DataModel data;
+  ApiService service = ApiService();
 
   @override
   Widget build(BuildContext context) {
@@ -75,13 +79,13 @@ class CoconestScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 40, top: 50),
+            Padding(
+              padding: const EdgeInsets.only(left: 40, top: 50),
               child: Row(
                 children: [
                   Text(
-                    'Modern fairytale',
-                    style: TextStyle(
+                    data.title!,
+                    style: const TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w500,
                         fontStyle: FontStyle.italic),
@@ -89,55 +93,26 @@ class CoconestScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: Container(
-                    height: 200,
-                    width: 320,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage('asset/Screenshot (68).png'))),
-                  ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 5),
-                  child: Container(
-                    height: 200,
-                    width: 320,
-                    decoration: const BoxDecoration(
-                        image: DecorationImage(
-                            fit: BoxFit.fill,
-                            image: AssetImage('asset/Screenshot (22).png'))),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 5,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 40.0),
-              child: Row(
-                children: [
-                  images(imagepath: 'asset/WIN_20231220_16_53_17_Pro.jpg'),
-                  const SizedBox(
-                    width: 9,
-                  ),
-                  images(imagepath: 'asset/Screenshot (67).png'),
-                  const SizedBox(
-                    width: 9,
-                  ),
-                  images(imagepath: 'asset/Vx1Mgl.webp'),
-                  const SizedBox(
-                    width: 9,
-                  ),
-                ],
+            SizedBox(
+              height: 300,
+              child: GridView.builder(
+                itemCount: data.properties!.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3),
+                itemBuilder: (context, index) {
+                  final images = data.properties![index];
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 200,
+                      width: 100,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                              image: NetworkImage(images), fit: BoxFit.cover)),
+                    ),
+                  );
+                },
               ),
             ),
             const SizedBox(
@@ -151,19 +126,19 @@ class CoconestScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         height: 900,
                         width: 170,
                         child: Column(
                           children: [
-                            Text(
+                            const Text(
                               'Bedrooms: 3 Bathrooms: 4 Guest Capacity: 6',
                               style: TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.w600),
                             ),
                             Text(
-                              'About:Enjoy the sounds of nature when you stay in this unique place.A shuttle will be arranged to a floating platform where the Coconest is attached. Relax on a net overhanging from the water with 360 views of the surrounding landscape including an island and King Kong mountain. Watch boats drive by as you float on the water of Tanjung Rhu in a private space dedicated for Guests looking to get away from it all, tune out and immerse themselves in nature.',
-                              style: TextStyle(
+                              data.description!,
+                              style: const TextStyle(
                                   fontSize: 17, fontWeight: FontWeight.w400),
                             )
                           ],
@@ -206,23 +181,13 @@ class CoconestScreen extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(8),
                                         ),
-                                        child: Center(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const FairyReserve()),
-                                              );
-                                            },
-                                            child: const Text(
-                                              'Reserve',
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
+                                        child: const Center(
+                                          child:  Text(
+                                            'Reserve',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
                                             ),
                                           ),
                                         ),

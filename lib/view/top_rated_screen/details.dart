@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:Airbnb_api/model/datamodel.dart';
 import 'package:Airbnb_api/view/host_home.dart';
-import 'package:Airbnb_api/view/top_rated_screen/coconest/coconest_reserve.dart';
 
 class CoconestScreen extends StatelessWidget {
   CoconestScreen({Key? key, required this.data});
@@ -125,19 +124,19 @@ class CoconestScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const SizedBox(
+                      SizedBox(
                         height: 900,
                         width: 170,
                         child: Column(
                           children: [
-                            Text(
+                            const Text(
                               'Bedrooms: 3 Bathrooms: 4 Guest Capacity: 6',
                               style: TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.w600),
                             ),
                             Text(
-                              'About:Enjoy the sounds of nature when you stay in this unique place.A shuttle will be arranged to a floating platform where the Coconest is attached. Relax on a net overhanging from the water with 360 views of the surrounding landscape including an island and King Kong mountain. Watch boats drive by as you float on the water of Tanjung Rhu in a private space dedicated for Guests looking to get away from it all, tune out and immerse themselves in nature.',
-                              style: TextStyle(
+                              data.description!,
+                              style: const TextStyle(
                                   fontSize: 17, fontWeight: FontWeight.w400),
                             )
                           ],
@@ -180,23 +179,13 @@ class CoconestScreen extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(8),
                                         ),
-                                        child: Center(
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const CocoReserve()),
-                                              );
-                                            },
-                                            child: const Text(
-                                              'Reserve',
-                                              style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
+                                        child: const Center(
+                                          child:  Text(
+                                            'Reserve',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
                                             ),
                                           ),
                                         ),

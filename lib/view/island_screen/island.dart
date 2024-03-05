@@ -84,8 +84,8 @@ class IslandScreen extends StatelessWidget {
                   ),
                   HelpCentre(
                     text1: 'Hosting',
-                    text2: 'Airbnb your home',
-                    text3: 'Air cover for Hosts',
+                    text2: 'Airbnb home',
+                    text3: 'Air cover for',
                     text4: 'Hosting',
                     text5: 'Resources',
                     text6: 'Community',

@@ -4,7 +4,6 @@ import 'package:Airbnb_api/view/top_rated_screen/top_rated.dart';
 import 'package:Airbnb_api/view/cabins_screen/cabins.dart';
 import 'package:Airbnb_api/view/design_screen/design.dart';
 import 'package:Airbnb_api/view/island_screen/island.dart';
-import 'package:Airbnb_api/view/tropical_screen/tropical.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -12,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 5,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Row(
@@ -105,10 +104,10 @@ class HomeScreen extends StatelessWidget {
                 icon: ImageIcon(AssetImage('asset/modern-house.png')),
                 text: 'Designs',
               ),
-              Tab(
-                icon: ImageIcon(AssetImage('asset/palm-tree.png')),
-                text: 'Tropicals',
-              ),
+              // Tab(
+              //   icon: ImageIcon(AssetImage('asset/palm-tree.png')),
+              //   text: 'Tropicals',
+              // ),
             ]),
             Expanded(
               child: TabBarView(children: [
@@ -116,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                 CabinScreen(),
                 IslandScreen(),
                 DesignScreen(),
-                TropicalScreen()
+               // TropicalScreen()
               ]),
             )
           ],
