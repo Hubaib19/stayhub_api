@@ -6,7 +6,7 @@ import 'package:Airbnb_api/service/stayhubService.dart';
 import 'package:Airbnb_api/view/top_rated_screen/details.dart';
 
 class TopRatedScreen extends StatelessWidget {
-  TopRatedScreen({super.key});
+  TopRatedScreen({Key? key}) : super(key: key);
 
   ApiService service = ApiService();
   List<DataModel> omglist = [];
@@ -30,6 +30,7 @@ class TopRatedScreen extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     );
                   } else if (snapshot.hasData) {
+                    omglist.clear(); 
                     for (var i = 0; i < snapshot.data!.length; i++) {
                       if (snapshot.data![i].category == "OMG!") {
                         omglist.add(snapshot.data![i]);
@@ -90,38 +91,39 @@ class TopRatedScreen extends StatelessWidget {
                   }
                 },
               ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                HelpCentre(
-                  text1: 'Support',
-                  text2: 'Help centre',
-                  text3: 'Air cover',
-                  text4: 'Air-discrimination',
-                  text5: 'Disability support',
-                  text6: 'Cancellation options',
-                  text7: 'Report',
-                ),
-                HelpCentre(
-                  text1: 'Hosting',
-                  text2: 'Stayhub home',
-                  text3: 'Air cover for ',
-                  text4: 'Hosting',
-                  text5: 'Resources',
-                  text6: 'Community',
-                  text7: '',
-                ),
-                HelpCentre(
-                  text1: 'Stayhub',
-                  text2: 'Newsroom',
-                  text3: 'New features',
-                  text4: 'Careers',
-                  text5: 'Investors',
-                  text6: 'Stayhub.org',
-                  text7: '',
-                ),
-              ],
-            ),
+              const SizedBox(height: 20),
+             const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  HelpCentre(
+                    text1: 'Support',
+                    text2: 'Help centre',
+                    text3: 'Air cover',
+                    text4: 'Air-discrimination',
+                    text5: 'Disability support',
+                    text6: 'Cancellation options',
+                    text7: 'Report',
+                  ),
+                  HelpCentre(
+                    text1: 'Hosting',
+                    text2: 'Stayhub home',
+                    text3: 'Air cover for ',
+                    text4: 'Hosting',
+                    text5: 'Resources',
+                    text6: 'Community',
+                    text7: '',
+                  ),
+                  HelpCentre(
+                    text1: 'Stayhub',
+                    text2: 'Newsroom',
+                    text3: 'New features',
+                    text4: 'Careers',
+                    text5: 'Investors',
+                    text6: 'Stayhub.org',
+                    text7: '',
+                  ),
+                ],
+              ),
             ],
           ),
         ),

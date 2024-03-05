@@ -31,6 +31,7 @@ class CabinScreen extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     } else if (snapshot.hasData) {
+                      cabinslist.clear(); 
                       for (var i = 0; i < snapshot.data!.length; i++) {
                         if (snapshot.data![i].category == "Cabins") {
                           cabinslist.add(snapshot.data![i]);
@@ -69,7 +70,6 @@ class CabinScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     Text(datas.title!),
-                                    Text(datas.location.toString()),
                                     Text("₹${datas.price!}"),
                                   ],
                                 ),

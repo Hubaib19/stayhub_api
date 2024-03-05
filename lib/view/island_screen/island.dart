@@ -30,6 +30,7 @@ class IslandScreen extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     } else if (snapshot.hasData) {
+                      islandlist.clear(); 
                       for (var i = 0; i < snapshot.data!.length; i++) {
                         if (snapshot.data![i].category == "Islands") {
                           islandlist.add(snapshot.data![i]);
@@ -68,7 +69,6 @@ class IslandScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     Text(datas.title!),
-                                    Text(datas.location.toString()),
                                     Text("₹${datas.price!}"),
                                   ],
                                 ),

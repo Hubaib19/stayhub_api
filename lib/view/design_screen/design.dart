@@ -31,6 +31,7 @@ class DesignScreen extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     } else if (snapshot.hasData) {
+                      designlist.clear(); 
                       for (var i = 0; i < snapshot.data!.length; i++) {
                         if (snapshot.data![i].category == "Design") {
                           designlist.add(snapshot.data![i]);
@@ -69,7 +70,6 @@ class DesignScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     Text(datas.title!),
-                                    Text(datas.location.toString()),
                                     Text("₹${datas.price!}"),
                                   ],
                                 ),

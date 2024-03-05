@@ -28,6 +28,7 @@ class TropicalScreen extends StatelessWidget {
                       child: CircularProgressIndicator(),
                     );
                   } else if (snapshot.hasData) {
+                    tropicallist.clear(); 
                     for (var i = 0; i < snapshot.data!.length; i++) {
                       if (snapshot.data![i].category == "Tropical") {
                         tropicallist.add(snapshot.data![i]);
