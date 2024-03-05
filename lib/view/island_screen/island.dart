@@ -1,12 +1,15 @@
 // ignore_for_file: non_constant_identifier_names, must_be_immutable
 
 import 'package:Airbnb_api/service/stayhubService.dart';
+import 'package:Airbnb_api/view/island_screen/island_details.dart';
 import 'package:flutter/material.dart';
 import 'package:Airbnb_api/model/datamodel.dart';
+import 'package:flutter/widgets.dart';
 
 class IslandScreen extends StatelessWidget {
   IslandScreen({super.key});
   ApiService service = ApiService();
+  List<DataModel> islandlist = [];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -27,23 +30,38 @@ class IslandScreen extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     } else if (snapshot.hasData) {
+                      for (var i = 0; i < snapshot.data!.length; i++) {
+                        if (snapshot.data![i].category == "Islands") {
+                          islandlist.add(snapshot.data![i]);
+                        }
+                      }
                       return ListView.builder(
-                        itemCount: snapshot.data!.length,
+                        itemCount: islandlist.length,
                         itemBuilder: (context, index) {
-                          DataModel datas = snapshot.data![index];
+                          DataModel datas = islandlist[index];
                           List<dynamic> images = datas.properties!;
                           return Column(
                             children: [
-                              Container(
-                                height: size.height * 0.4,
-                                width: size.width,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                          images[0],
-                                        ),
-                                        fit: BoxFit.cover)),
+                              GestureDetector(
+                                 onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => IslandDetails(
+                                                data: datas,
+                                              )));
+                                },
+                                child: Container(
+                                  height: size.height * 0.4,
+                                  width: size.width,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            images[0],
+                                          ),
+                                          fit: BoxFit.cover)),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 1),

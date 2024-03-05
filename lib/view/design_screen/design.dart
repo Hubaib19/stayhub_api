@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, must_be_immutable
 
 import 'package:Airbnb_api/service/stayhubService.dart';
+import 'package:Airbnb_api/view/design_screen/design_details.dart';
 import 'package:flutter/material.dart';
 import 'package:Airbnb_api/model/datamodel.dart';
 
@@ -8,6 +9,8 @@ class DesignScreen extends StatelessWidget {
   DesignScreen({super.key});
 
   ApiService service = ApiService();
+  List<DataModel> designlist = [];
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -28,23 +31,38 @@ class DesignScreen extends StatelessWidget {
                         child: CircularProgressIndicator(),
                       );
                     } else if (snapshot.hasData) {
+                      for (var i = 0; i < snapshot.data!.length; i++) {
+                        if (snapshot.data![i].category == "Design") {
+                          designlist.add(snapshot.data![i]);
+                        }
+                      }
                       return ListView.builder(
-                        itemCount: snapshot.data!.length,
+                        itemCount: designlist.length,
                         itemBuilder: (context, index) {
-                          DataModel datas = snapshot.data![index];
+                          DataModel datas = designlist[index];
                           List<dynamic> images = datas.properties!;
                           return Column(
                             children: [
-                              Container(
-                                height: size.height * 0.4,
-                                width: size.width,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                          images[0],
-                                        ),
-                                        fit: BoxFit.cover)),
+                              GestureDetector(
+                                 onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DesignDetails(
+                                                data: datas,
+                                              )));
+                                },
+                                child: Container(
+                                  height: size.height * 0.4,
+                                  width: size.width,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            images[0],
+                                          ),
+                                          fit: BoxFit.cover)),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 1),
